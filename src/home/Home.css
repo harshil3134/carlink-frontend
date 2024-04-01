@@ -1,0 +1,9 @@
+.full{
+    height: 100%;
+        background-color: #FFFCF7;
+        
+     /* background-color: #f8f8f8; */
+}
+.main{
+    display: flex;
+}

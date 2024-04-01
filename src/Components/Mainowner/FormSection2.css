@@ -1,0 +1,68 @@
+.container_main_form2{
+   
+    width: 100vw;
+    height: 180vh;
+    background-color: #f8f8f8;
+    position: fixed;
+}
+
+.container_form2{
+    /* border: 1px solid black; */
+    width: 70vw;
+    height: 80vh;
+    margin: 70px 160px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.vehicleinfotext{
+    display: flex;
+
+
+}
+.carinfotext{
+padding-top: 20px;
+padding-left: 70px;
+/* font-size: x-large; */
+font-weight: bold;
+}
+.mainimage{
+    padding-left: 80px;
+}
+.ex_img{
+    display: flex;
+    padding-left: 80px;
+    padding-top: 10px;
+}
+.ex_img_label{
+    padding-left: 80px;
+    margin-top: 20px;
+}
+.in_img{
+    display: flex;
+    padding-left: 80px;
+    padding-top: 10px;
+}
+.in_img_label{
+    padding-left: 80px;
+    margin-top: 20px;
+}
+.carnamelabel{
+    padding-left: 80px;
+}
+.submitbtn{
+    /* margin-left: 50px;
+    margin-top: 30px; */
+   margin-left: 80px;
+    width:80px;
+    height: 30px;
+    /* border-color: #FEB06E; */
+    background-color: white;
+    font-size: large;
+    border-radius: 5px;
+}
+.submitbtn:hover{
+    background-color: #FEB06E;
+    color: white;
+    border-color: #FEB06E;
+}

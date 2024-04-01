@@ -1,0 +1,48 @@
+.container_cities{
+    width:80%;
+    height:200px;
+    /* border:1px solid black; */
+    display: flex;
+    margin-left: 40px;
+}
+.fullcontainer_cities{
+    /* border: 1px solid black; */
+    width:96%;
+    margin-left: 20px;
+    margin-top: 100px;
+    background-color:#414141;
+    height: 400px;
+    border-radius: 10px;
+}
+.cities1{
+    color:#A8A6A6;
+    line-height: 2;
+    margin-left: 10px;
+    margin-right: 100px;
+   
+}
+.cities1:hover{
+    color: white;
+}
+.cities2{
+    color:#A8A6A6;
+    margin-left: 50px;
+    line-height: 2;
+    margin-right: 100px;
+}
+.cities2:hover{
+    color: white;
+}
+.cities3{
+    color:#A8A6A6;
+    margin-left: 50px;
+    line-height: 2;
+}
+.cities3:hover{
+    color: white;
+}
+.citiestext{
+    color:white;
+    margin-left: 30px;
+    padding-top: 10px;
+}

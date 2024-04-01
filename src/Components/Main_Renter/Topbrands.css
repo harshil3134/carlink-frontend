@@ -1,0 +1,25 @@
+.container_brand{
+    display: flex;
+    margin-top: 10px;
+    margin-left:20px;
+ 
+}
+.brands_img{
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-right: 10px;
+   
+}
+.brands_name{
+    padding-right: 30px;
+    margin-left: 40px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: white;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+.topbrands{
+    margin-top: 40px;
+    margin-left: 10px;
+    
+}

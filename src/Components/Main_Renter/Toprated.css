@@ -1,0 +1,61 @@
+.toprated{
+    margin-top: 40px;
+    margin-left: 10px;
+}
+.fullcontainer_brands{
+    display: flex;
+} 
+
+.top_brands{
+    width: 30%;
+    height: 200px;
+    /* border: 1px solid black; */
+    margin: 10px;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 15px;
+   
+}
+.brandstext{
+    margin-top: 200px;
+}
+.brand_imgs{
+   margin-left: 120px;
+   width: 65%;
+   height: 150px;
+   /* border: 1px solid black; */
+   margin-top: 0px;
+}
+.brandinfo{
+  background-color: white;
+  height: 240px;
+    border-radius: 10px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+.cartyperenter{
+    color: #6a6a6a;
+    font-size: x-large;
+    margin-top: 0px;
+    line-height: 0%;
+    font-weight: bold;
+    margin-left: 30px;
+}
+.carnamerenter{
+    color: #A8a6a6;
+    font-size: larger;
+    font-weight: bold;
+    margin-left: 30px;
+    
+}
+.carpricerenter{
+    color: black;
+    font-size: large;
+    line-height: 0%;
+    margin-left: 30px;
+    
+}
+.arrowicon{
+    margin-left: 280px;
+    margin-top: -65px;
+   
+}

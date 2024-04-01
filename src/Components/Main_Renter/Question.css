@@ -1,0 +1,31 @@
+.container_faq{
+    margin-top: 20px;
+   
+   
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
+    background-color: white;
+
+}
+.faqs{
+    background-color: white;
+    border-bottom: 0.5px solid #C5C6D0;
+    
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    
+    
+}
+.faq{
+    margin-top: 40px;
+}
+.question{
+    font-size: x-large;
+    font-weight: bold;
+}
+.answer{
+    margin-top: -5px;
+    color: #6a6a6a;
+}

@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+.container_main_reg{
+     display: flex; 
+}
+  .navigation_reg{
+    width: 146vw;
+    background-color: white;
+    height: 70px;
+    /* border: 1px solid black; */
+    border-bottom-right-radius:90px;
+    display: inline;
+    color: black;
+  }
+  ul{
+    list-style-type: none;
+    padding-top: 15px;
+  }
+ 
+  li a{
+    text-decoration: none;
+    color: white;
+    padding-right: 20px;
+  }
+  .links_reg{
+    float:right;
+    padding: 12px 12px;
+    margin-left: -8px;
+   
+    
+  
+  }
+  .howtobook_reg{
+    color: black;
+    
+  }
+  .carlink_reg{
+    font-style: italic;
+
+
+    
+
+
+    
+    font-weight:bolder;
+    font-size: xx-large;
+    padding-left: 2px;  
+    color: black;
+  }
+
+.aboutus_reg{
+    border-radius: 50px;
+    display: inline-block;
+    background-color: #FEB06E;
+    /* border: 1px solid black; */
+    width: 103vh;
+    padding: 12px 12px;
+    margin-left: 50px;
+    
+}
+.aboutus_reg li{
+    margin-right: 20px;
+    color: white;
+}

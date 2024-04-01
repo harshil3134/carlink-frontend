@@ -1,0 +1,10 @@
+.input_box_field{
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+    margin-top: 5px;
+}
+.input_box_label{
+    margin-top: 5px;
+}

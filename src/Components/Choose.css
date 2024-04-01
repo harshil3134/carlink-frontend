@@ -1,0 +1,160 @@
+.choose{
+    /* border: 1px solid black; */
+    margin-left: 0px;
+    margin-top: 160px;
+    background-color:#FFFCF7 ;
+    height: 400px;
+    width: 100%;
+    
+}
+.choose_title{
+    color:#5D99F3 ;
+    text-align: center;
+    font-weight: 300;
+    font-size:50px;
+}
+.title_name{
+    font-style: italic;
+    font-weight: bold;
+}
+.container{
+    width:95%;
+    height: 300px;
+    background-color: #FFFCF7;
+    margin: 5px;
+    /* border: 1px solid black; */
+    display: flex;
+    margin-left: 50px;
+}
+
+.bestprice{
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 15px 30px;
+    height: 250px;
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid black; */
+    
+}
+.Fast_Safe{
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 15px 30px;
+    height: 250px;
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid black; */
+}
+.ex_driver{
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 15px 30px;
+    height: 250px;
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid black; */
+}
+.price_img{
+    /* border:1px solid black; */
+    margin-left: 50px;
+    width: 25%;
+    height: 50px;
+    background-image: url("./images/speedometer-icon.webp");
+    background-size: 100% 100%;
+   /* border: 1px solid black; */
+   margin-top: 20px;
+   margin-left: 80px;
+}
+.safe_img{
+    /* border:1px solid black; */
+    width: 35%;
+    height: 70px;
+    background-image: url("./images/evcar.jpg");
+    background-size: 100% 100%;
+   /* border: 1px solid black; */
+   margin-top: 15px;
+   margin-left: 70px;
+}
+.driver_img{
+    /* border:1px solid black; */
+    width: 25%;
+    height: 50px;
+    background-image: url("./images/peertopeer.JPG");
+    background-size: 100% 100%;
+   /* border: 1px solid black; */
+   margin-top: 25px;
+   margin-left: 80px;
+}
+.support_img{
+    width: 25%;
+    height: 50px;
+    background-image: url("./images/customersupport.jpg");
+    background-size: 100% 100%;
+   /* border: 1px solid black; */
+   margin-top: 25px;
+   margin-left: 80px;
+}
+.location_logo{
+    margin-top: 20px;
+    margin-left:30px ;
+    color: orangered;
+ }
+ .rent_logo{
+     margin-top: 20px;
+    margin-left:30px ;
+    color: orangered;
+ }
+ .pay_logo{
+     margin-top: 25px;
+     margin-left:30px ;
+     color: orangered;
+ }
+
+ .fpp{
+    padding-top: 25px;
+    font-size: large;
+    font-weight: bold;
+ }
+ .fpptxt{
+    color:#6A6A6A;
+    text-align: center;
+    padding-top: 20px;
+ }
+ .efotxt{
+    color:#6A6A6A;
+    text-align: center;
+    padding-top: 20px;
+ }
+ .ptpcdtxt{
+    color:#6A6A6A;
+    text-align: center;
+    padding-top: 20px;
+ }
+ .saatxt{
+    color:#6A6A6A;
+    text-align: center;
+    padding-top: 20px;
+ }
+
+ .efo{
+    padding-top: 10px;
+    font-size: large;
+    font-weight: bold;
+ }
+
+ .ptpcd{
+    padding-top: 20px;
+    font-size: large;
+    font-weight: bold;
+ }
+
+
+ .saa{
+    padding-top: 20px;
+    font-size: large;
+    font-weight: bold;
+ }

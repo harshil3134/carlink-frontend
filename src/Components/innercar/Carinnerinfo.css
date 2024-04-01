@@ -1,0 +1,67 @@
+.innerinfo{
+    /* border: 1px solid black; */
+    width:80%;
+    height:180vh;
+    margin-left: 130px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 15px;
+    
+}
+.innerimg{
+    margin-left: 300px;
+    margin-top: 20px;
+
+}
+.innercarname{
+    margin-left: 380px;
+    font-size: xx-large;
+    padding-top: 20px;
+    
+}
+.container_exterior{
+    display: flex;
+    /* border: 1px solid black; */
+}
+.exterior{
+   margin-top: 20px;
+    
+}
+.excarname{
+    margin-top: 20px;
+    margin-left: 0px;
+    font-size: x-large;
+    display: flex;
+   
+}
+.eximg{
+    margin-left: 90px;
+    margin-right: -60px;
+    
+}
+.segment_car{
+    margin-top: 23px;
+}
+.segment_text{
+    font-size: larger;
+}
+.booking{
+    /* border: 1px solid black; */
+    width: 30%;
+    margin-left: 350px;
+    margin-top: 30px;
+    background-color: #FEB06E;
+    border-radius: 18px;
+    height: 50px;
+
+}
+.book{
+    padding-left: 70px;
+    font-size: xx-large;
+}
+.bookingmessage{
+    margin-left: 330px;
+    margin-top: 30px;
+    font-size: xx-large;
+    color: green;
+}

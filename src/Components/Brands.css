@@ -1,0 +1,44 @@
+
+.fullcontainer{
+    margin-top: 110px;
+    /* border: 1px solid black; */
+    width:90%;
+    margin-left: 50px;
+
+    
+}
+.brands_title{
+    margin-left: 20px;
+    color:#5D99F3 ;
+    text-align: center;
+    font-weight: 300;
+    font-size:50px;
+    }
+.brandsimg{
+    padding-left: 30px;
+    padding-top: 20px;
+   
+}
+.brands_name{
+    margin-left: 20px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: white;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+.slick-slide > div{
+    margin: 0 15px;
+}
+.slick-prev {
+    left: -4% !important;
+    z-index: 1;
+   
+  }
+  .slick-next {
+    right: -4% !important;
+    z-index: 1;
+    width: 50px; /* Adjust width and height as needed */
+    height: 50px;
+    font-size: 20px; /* Increase font size for icons or text */
+    padding: 10px; 
+  }

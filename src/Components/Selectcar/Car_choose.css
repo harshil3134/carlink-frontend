@@ -1,0 +1,9 @@
+.container_carchoose{
+    background-color: #f8f8f8;
+    width: 100vw;
+    height: 120vh;
+    /* display: flex; */
+}
+.fliterrenter{
+    display: flex;
+}

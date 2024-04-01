@@ -1,0 +1,30 @@
+.container_review{
+  display: flex;
+}
+.reviews{
+    margin-left: 20px;
+    background-color: white;
+    margin-right: 20px;
+    border-radius: 15px;
+    height: 250px;
+    width: 23%;
+    margin-top: 20px;
+}
+.personicon{
+    margin-left: 0px;
+    border-bottom: 1px solid #a8a8a8 ;
+    width: 100%;
+    margin-top: 10px;
+    
+}
+.reviewtext{
+    margin-top: 60px;
+}
+.cusname{
+    font-size: larger;
+    font-weight: bold;
+    padding-left: 20px;
+}
+.textreview{
+    padding-left: 20px;
+}

@@ -1,0 +1,10 @@
+.input_reg_field{
+    width: 120%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+    margin-top: 7px;
+}
+.input_reg_label{
+    margin-top: 5px;
+}

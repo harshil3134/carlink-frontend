@@ -1,0 +1,85 @@
+.container_role_main{
+   background-image: url("./images/Frame.jpg");
+   width:100vw;
+   height: 100vh;
+   background-size: cover;
+   /* background-color: blue; */
+}
+.role_main{
+    /* border: 1px solid black; */
+    width:90vw;
+    height: 70vh;
+    margin-left: 100px;
+    margin-top: 40px;
+    display: flex;
+
+}
+
+.owner_role{
+    /* border: 1px solid black; */
+    width:30vw;
+    height: 40vh;
+    margin-top: 105px;
+    margin-left: 40px;
+    background-image: url("./images/owner_role.jpg");
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.renter_role{
+    /* border: 1px solid black; */
+    width:33vw;
+    height: 40vh;
+    margin-top: 100px;
+    margin-left: 240px;
+    background-image: url("./images/renter_role.png");
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    border-radius: 5px;
+}
+.owner_role_btn{
+    margin-top: -50px;
+    /* border: 1px solid black; */
+    width: 100px;
+    height: 30px;
+    margin-left: 270px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #FEB06E;
+    padding-top: 5px;
+    border-radius: 20px;
+    padding-left: 30px;
+   
+    /* padding-left: 120px; */
+}
+
+.renter_role_btn{
+    padding-left: 30px;
+    padding-top: 5px;
+    border-radius: 20px;
+    margin-top: -43px;
+    /* border: 1px solid black; */
+    width: 100px;
+    height: 30px;
+    margin-left: 930px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: white;
+   
+}
+
+.owner_role_btn:hover{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.renter_role_btn:hover{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.renterlink{
+    text-decoration: none;
+    color: black;
+}
+.ownerlink{
+    text-decoration: none;
+    color: black;
+}

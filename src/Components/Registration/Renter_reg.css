@@ -1,0 +1,57 @@
+.container_renter{
+    width: 100vw;
+    height: 100vh;
+    /* background-color:#A8A6A6;
+     */
+     background-image: url("./images/Registration_bg.png");
+     box-sizing: border-box;
+     background-size: cover;
+}
+.registration_info{
+    /* border: 1px solid black; */
+    width:45vw;
+    height: 60vh;
+    margin-left: 80px;
+    margin-top: 80px;
+    border-radius: 20px;
+    background-color: #FEB06E;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.reg_text{
+    margin-left: 200px;
+    /* margin-top: 40px;
+     */
+     padding-top: 25px;
+}
+.reg_input{
+    margin-top: 20px;
+    margin-left: 30px;
+    display: flex;
+    gap: 120px;
+
+}
+
+ 
+.reg_basic{
+    margin-top: 15px;
+    margin-left: 30px;
+    display: flex;
+    gap: 120px;
+}
+
+.dobinput{
+    margin-top: 15px;
+    margin-left: 30px;
+    display: flex;
+    gap: 120px;
+}
+
+.submit_regis_renter_btn{
+margin-top: 15px;
+margin-left: 190px;
+width: 35%;
+height: 35px;
+background-color: white;
+/* border: 1px solid black; */
+border-radius: 10px;
+}

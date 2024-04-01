@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+  .navigation{
+    width: 100vw;
+    background-color: #FEB06E;
+    height: 70px;
+    /* position:fixed; */
+  }
+  ul{
+    list-style-type: none;
+    padding-top: 15px;
+  }
+  li{
+    display: inline;
+    color: white;
+      
+    
+  }
+  li a{
+    text-decoration: none;
+    color: white;
+    padding-right: 20px;
+  }
+  .links{
+    float:right;
+    padding: 12px 12px;
+    margin-left: -8px;
+    
+  
+  }
+  .carlink{
+    font-style: italic;
+    font-weight:bolder;
+    font-size: xx-large;
+    padding-left: 2px;
+    
+    
+  }
+  .headingaboutus{
+    margin-top: -15px;
+  }
+
+  .profile{
+    margin-top:-15px ;
+  }

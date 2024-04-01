@@ -1,0 +1,14 @@
+.mainrenter{
+    height: 450%;
+    width: 100%;
+    background-color: #f8f8f8;
+    position: absolute;
+
+}
+.mainhead{
+    margin-top: 0px;
+    position: fixed;
+}
+.search{
+    margin-top: 50px;
+}

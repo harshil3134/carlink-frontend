@@ -1,0 +1,9 @@
+.container_pass{
+    width: 100vw;
+    height: 100vh;
+    /* background-color:#A8A6A6;
+     */
+     background-image: url("./images/bg_3.png");
+     box-sizing: border-box;
+     background-size: cover;
+}

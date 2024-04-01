@@ -1,0 +1,20 @@
+.filter{
+    height: 109vh;
+    width: 20%;
+    background-color: #FFFCF7;
+}
+.filtertext{
+    font-size: x-large;
+    margin-left: 5px;
+    font-weight: bold;
+}
+.carsegment{
+    margin-left: 15px;
+}
+.segment{
+    font-size: larger;
+}
+input[type=checkbox]{
+    margin-left: 20px;
+   
+}

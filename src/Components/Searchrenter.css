@@ -1,0 +1,98 @@
+.searchrenter{
+    height: 230px;
+    width: 50%;
+    background-color: white;
+    border: 4px solid #FEB06E;
+    margin-top: 150px;
+    margin-left: 300px;
+    border-radius: 15px;
+}
+.searchstate{
+    display:flex;
+    border-bottom: 5px solid #FEB06E;
+    /* border-radius: 15px; */
+    background-color: white;
+    width: 100%;
+    margin-top: 8px;
+    height: 50px;
+    border-radius:1px ;
+}
+.mapicon{
+    margin-left: 10px;
+    margin-top: 5px;
+    padding-right: 10px;
+}
+.renterdate{
+    border-bottom: 5px solid #FEB06E;
+    /* border-radius: 15px; */
+    background-color: white;
+    width: 100%;
+    /* margin-top: 8px; */
+    height: 70px;
+    border-radius:1px ;
+    display: flex;
+}
+
+.startdate{
+    background-color:white;
+    width: 50%;
+    height: 70px;
+    border-right:5px solid #FEB06E ;
+    display: flex;
+}
+.enddate{
+    background-color: white;
+    width: 50%;
+    height: 70px;
+    display: flex;
+}
+.searchlocationrenter{
+    /* border: none;
+    padding-left: 10px;
+    width: 70%;
+    font-size: xx-large;
+    padding-top:0px ;
+    color: red; */
+    display: inline-block;
+}
+
+.searchlocationrenter select {
+    /* Styles for the select element */
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 500px; /* Set desired width */
+    height: 40px;
+  }
+  
+  .searchlocationrenter select:focus {
+    /* Styles for select element on focus */
+    outline: 2px solid #ddd;
+  }
+.calendericon{
+    margin-left: 10px;
+    margin-top: 15px; 
+    
+}
+.startdateinput{
+ color: #5F5F5F;
+ font-size: x-large;
+ margin-left: 5px;
+margin-top: 4px; 
+}
+.searchbtn{
+    background-color: #FEB06E;
+    width: 30%;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+.searchtext{
+    color: white;
+    font-size: x-large;
+    padding-left: 60px;
+    padding-top: 3px;
+}

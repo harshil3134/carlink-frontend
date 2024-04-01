@@ -1,0 +1,159 @@
+.footer{
+    /* border: 1px solid black; */
+    margin-left: 0px;
+    margin-top: 160px;
+    background-color:#FFFCF7 ;
+    height: 400px;
+    width: 100%;
+    
+}
+.title{
+    color:#5D99F3 ;
+    text-align: center;
+    font-weight: 300;
+    font-size:50px;
+}
+.title_name{
+    font-style: italic;
+    font-weight: bold;
+}
+.photos{
+    width:95%;
+    height: 300px;
+    background-color: #FFFCF7;
+    margin: 5px;
+    /* border: 1px solid black; */
+    display: flex;
+    margin-left: 30px;
+}
+
+.Location{
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 15px 30px;
+    height: 250px;
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid black; */
+    
+}
+.rent{
+    border-radius: 20px; 
+    padding-top: 10px;
+    margin: 15px 30px;
+    height: 250px;
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid black; */
+}
+.payment{
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 15px 30px;
+    height: 250px;
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid black; */
+}
+.trip{
+    border-radius: 20px;
+    padding-top: 10px;
+    margin: 15px 30px;
+    height: 250px;
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* border: 1px solid black; */
+}
+.location_img{
+    
+    /* border:1px solid black; */
+    margin-left: 50px;
+    width: 50%;
+    height: 100px;
+   
+}
+.rent_img{
+    /* border:1px solid black; */
+    margin-left: 50px;
+    width: 50%;
+    height: 100px;
+}
+.pay_img{
+    /* border:1px solid black; */
+    margin-left: 50px;
+    width: 50%;
+    height: 100px;
+}
+.trip_img{
+    /* border:1px solid black; */
+    margin-left: 50px;
+    width: 50%;
+    height: 100px;
+}
+.location_img img{
+    object-fit:contain;
+}
+.location_logo{
+   margin-top: 20px;
+   margin-left:30px ;
+   color: orangered;
+}
+.rent_logo{
+    margin-top: 20px;
+   margin-left:30px ;
+   color: orangered;
+}
+.pay_logo{
+    margin-top: 25px;
+    margin-left:30px ;
+    color: orangered;
+}
+.trip_logo{
+    margin-top: 25px;
+    margin-left:30px ;
+    color: orangered;
+}
+
+.sl{
+    font-size: x-large;
+    font-weight: bold;
+    padding-top: -5px;
+}
+.sltext{
+    text-align: center;
+    padding-top: 20px;
+    color: #6a6a6a;
+}
+.ra{
+    font-size: x-large;
+    font-weight: bold;
+}
+.ratext{
+    text-align: center;
+    padding-top: 15px;
+    color: #6a6a6a;
+}
+.mp{
+    font-size: x-large;
+    font-weight: bold;
+    
+}
+.mptext{
+    text-align: center;
+    padding-top: 15px;
+    color: #6a6a6a;
+}
+
+.st{
+    font-size: x-large;
+    font-weight: bold;
+}
+.sttext{
+    text-align: center;
+    padding-top: 15px;
+    color: #6a6a6a;
+}

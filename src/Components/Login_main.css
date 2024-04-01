@@ -1,0 +1,34 @@
+.loginsignup{
+    display: flex;
+    padding-top: 0px;
+    margin-top: -45px;
+   
+}
+.signup{
+    background-color: #FEB06E;
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 18px;
+    margin-left: 30px;
+}
+.Signuplink{
+    text-decoration: none;
+    color: white;
+    font-size: xx-large;
+    padding-left: 8px;
+}
+.login{
+    background-color: #FEB06E;
+    width: 10%;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 18px;
+    margin-left: 50px;
+}
+.loginlink{
+    text-decoration: none;
+    color: white;
+    font-size: xx-large;
+    padding-left: 10px;
+}

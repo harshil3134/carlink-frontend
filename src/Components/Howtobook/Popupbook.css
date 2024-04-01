@@ -1,0 +1,75 @@
+.container_popupbook{
+    width: 80%;
+    height: 90vh;
+    inset: 10%;
+    position: fixed;
+    background-color: #FFFCF7;
+    border-radius: 20px;
+    color: black;
+}
+
+.column{
+    width: 30px;
+    background-color: #FEB06E;
+    margin-left: 500px;
+    margin-top: 20px;
+    height: 80vh;
+    border-radius: 20px;
+
+}
+.book_step1{
+    /* padding-top: 20px; */
+    background-color: white;
+    border: 1px solid black;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-top: 30px;
+    
+}
+.step1{
+    /* margin-top: 200px; */
+    margin-top: -380px;
+    margin-left: 250px;
+}
+.book_step1 p{
+   
+    padding-left: 5px;
+}
+.book_step2{
+    /* padding-top: 20px; */
+    background-color: white;
+    border: 1px solid black;
+    width: 20px;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-top: 30px;
+    
+}
+
+.book_step2 p{
+   
+    padding-left: 5px;
+}
+
+.step2{
+    margin-left: 550px; 
+    /* border: 1px solid black; */
+    margin-top:30px;
+
+}
+
+.step3{
+    margin-left: 140px;
+    margin-top: 33px;
+}
+.step4{
+    margin-left: 555px;
+    margin-top: 30px;
+
+}
+.step5{
+    margin-left: 325px;
+    margin-top: 30px;
+
+}
