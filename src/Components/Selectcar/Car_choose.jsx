@@ -10,6 +10,7 @@ import { Context } from "../../main";
 import React, { useContext, useEffect, useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import axios from "axios";
+
 import { useLocation } from 'react-router-dom'
 function Car_choose() {
   const [showpopup,setShowpopup]=useState(false);
@@ -100,6 +101,10 @@ function Car_choose() {
     }
   
   ];
+
+  const backtorenter=()=>{
+    navigate(`/mainrenter`);
+  }
   return (
     <div className='container_carchoose'>
       <Heading headingarray={headingarray}/>
@@ -107,6 +112,11 @@ function Car_choose() {
 
       <div className='fliterrenter'>
       <Filter/>
+      <div id='back'>
+      <button type='' onClick={backtorenter}>
+        <img src='./images/backimg.svg' alt='back'/>
+      </button>
+      </div>
 
       {
       vehicledata.length > 0 ? (

@@ -1,11 +1,11 @@
 .searchowner{
-    height: 150px;
+    height: 260px;
     width: 50%;
     background-color: white;
     border: 4px solid #FEB06E;
-    margin-top: 110px;
+    margin-top: 80px;
     margin-left: 300px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 .searchstate{
     display:flex;
@@ -17,13 +17,29 @@
     height: 50px;
     border-radius:1px ;
 }
+.selectcar{
+    display:flex;
+    border-bottom: 5px solid #FEB06E;
+    /* border-radius: 15px; */
+    background-color: white;
+    width: 100%;
+    margin-top: 8px;
+    height: 50px;
+    border-radius:1px ;
+    font-size:19px;
+}
+.selectcar select{
+    height:30px;
+    margin-top:5px;
+    width:240px;
+}
 .mapicon{
     margin-left: 10px;
     margin-top: 5px;
     padding-right: 10px;
 }
-.renterdate{
-    border-bottom: 5px solid #FEB06E;
+.renterdateowner{
+    border-bottom: 0px solid #FEB06E;
     /* border-radius: 15px; */
     background-color: white;
     width: 100%;
@@ -33,15 +49,17 @@
     display: flex;
 }
 
-.startdate{
+.startdateowner{
     background-color:white;
     width: 50%;
     height: 70px;
+    border-bottom:5px solid #FEB06E ;
     border-right:5px solid #FEB06E ;
     display: flex;
 }
-.enddate{
+.enddateowner{
     background-color: white;
+    border-bottom:5px solid #FEB06E ;
     width: 50%;
     height: 70px;
     display: flex;
@@ -53,6 +71,11 @@
     font-size: xx-large;
     padding-top:0px ;
     color: red;
+    
+}
+.searchlocationrenter:hover{
+    color: #FEB06E ;
+
 }
 .calendericon{
     margin-left: 10px;
@@ -60,22 +83,65 @@
     
 }
 .startdateinput{
- color: #5F5F5F;
+ color: black;
  font-size: x-large;
  margin-left: 5px;
-margin-top: 4px; 
+/* margin-top: 4px;  */
 }
 .searchbtn{
-    background-color: #FEB06E;
-    width: 30%;
+    /* background-color: #FEB06E;
+    /* width: 30%; */
     height: 35px;
     border-radius: 10px;
     margin-left: 200px;
-    margin-top: 30px;
+    margin-top: 30px; 
 }
 .searchtext{
     color: white;
     font-size: x-large;
     padding-left: 60px;
     padding-top: 3px;
+}
+.startdatemainowner{
+   margin-top: 5px;
+    font-size:large;
+}
+.input_field_startdate_mainowner{
+    color: black;
+    width: 120px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.searchtextowner{
+    background-color:#FEB06E; 
+    border: none;
+    color: white;
+    padding: 15px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    font-size: large;
+    margin-left: 230px;
+    margin-top: -5px;
+
+}
+.searchbtnowner{
+
+    width: 100%;
+    height: 30px;
+   
+    /* background-color: blue; */
+    margin-top: 15px;
+    margin-left:60px;
+    /* marin-bottom:10px; */
+    /* border: 4px solid #FEB06E; */
+    /* border-top:0px ; */
+    /* border-left: 4px solid #FEB06E;
+    border-right:4px solid #FEB06E ;
+    border-bottom:4px solid #FEB06E ; 
+    border-radius: 10px; */
+    /* background-color:blue; */
+
 }

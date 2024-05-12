@@ -7,3 +7,17 @@
 .fliterrenter{
     display: flex;
 }
+#back{
+    height:50px;
+    width:50px;
+    border:none;
+    display:flex;
+   
+}
+#back Button{
+    border:none;
+}
+#back img{
+    height:40px;
+    width:40px;
+}

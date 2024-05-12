@@ -50,8 +50,8 @@ const handleLogout = async () => {
           <Link to="/UpdateProfile"> <p className='updatepopup'><UserRoundPlus className='updateicon' size={20} color='black'/><p className='spantxt'>Edit Profile</p></p></Link>
         </div>
         <div>
-          <button onClick={handleLogout}>
-           <p className='signoutpopup'><LogOut size={20} className='updateicon' color='black'/><p className='spantxt'>Sign out</p></p>
+          <button onClick={handleLogout} className='signoutbtn'>
+           <p className='signoutpopup'><LogOut size={20} className='signouticon' color='black'/><p className='spantxtsignout'>Sign out</p></p>
            </button>
         </div>
       </div>

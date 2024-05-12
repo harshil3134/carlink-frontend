@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect} from "react";
 import './SearchOwner.css'
 
 import Calendar from 'react-calendar';
@@ -12,16 +12,18 @@ function SearchOwner() {
    
     const [selectedstartDate, setSelectedstartDate] = useState(new Date());
     const [selectedendDate, setSelectedendDate] = useState(new Date());
-
+    const [carName,setCarName]=useState("");
+    const [carList,setCarList]=useState([]);
     
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
   const handleDate = async (e) => {
     e.preventDefault();
     try {
+      console.log("cc",carName)
       const { data } = await axios.post(
         "http://localhost:8000/api/v1/owner_reg/owner_home",
-        {startdate:selectedstartDate,enddate:selectedendDate},
+        {carname:carName,startdate:selectedstartDate,enddate:selectedendDate},
         {
           headers: {
             "Content-Type": "application/json",
@@ -35,6 +37,39 @@ function SearchOwner() {
       console.log(error.response.data.message);
     }
   };
+
+
+
+const fetchcars = async (e) => {
+
+    try {
+      const { data } = await axios.get(
+        "http://localhost:8000/api/v1/owner_reg/listcars",
+      
+        {
+          
+          withCredentials: true,
+        }
+      );
+      toast.success(data.message);
+     
+      console.log("dataa",data);
+  
+      console.log("hey",data.carlist);
+      setCarList(data.carlist);
+
+
+    }   
+    
+    catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  useEffect(()=>{
+fetchcars();
+
+    },[isAuthorized])
 
   if(!isAuthorized){
     return <Navigate to={'/login'}/>
@@ -52,6 +87,8 @@ function SearchOwner() {
       display:"flex",
     }
 
+    const testarr=['AA','BB','CC'];
+
 
 
   return (
@@ -67,16 +104,29 @@ function SearchOwner() {
 <Link to="/formsection1"className='searchlocationrenter'>Upload A Vehicle</Link>
 
     </div>
+    <div className="selectcar">
+      <p>Select an Option:</p>
+      {/* Render dropdown list */}
+      <select onChange={(e)=>setCarName(e.target.value)} required>
+        {/* Map over the options array to render options */}
+        <option>Select Car</option>
+        {carList.map(option => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
 
     
-     <div className="renterdate">
-        <div className='startdate'>
+     <div className="renterdateowner">
+        <div className='startdateowner'>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-week" viewBox="0 0 16 16" className='calendericon'>
 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
 <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5zM11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
             </svg>
             <p className='startdateinput'>
-            <p >Start Date: </p>
+            <p className="startdatemainowner">Start Date: </p>
 
 
             </p>
@@ -84,19 +134,19 @@ function SearchOwner() {
             <input type="date" id="start_Date" name='start_Date' value={selectedstartDate} // Typo fixed: value should be formData.age
      style={inputstyle1}
      onChange={(e)=>setSelectedstartDate(e.target.value)}
-     className='input_field_validation'
+     className='input_field_startdate_mainowner'
      required
      />
       </div>
           </div>
-        <div className='enddate'>
+        <div className='enddateowner'>
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar2-week" viewBox="0 0 16 16" className='calendericon'>
 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"/>
 <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5zM11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
         </svg>
 
-        <p className='startdateinput'>
-    <p >End Date: </p>
+        <p >
+    <p className='startdatemainowner'>End Date: </p>
   
 
 </p>
@@ -104,14 +154,14 @@ function SearchOwner() {
             <input type="date" id="end_Date" name='end_Date' value={selectedendDate} // Typo fixed: value should be formData.age
      style={inputstyle1}
      onChange={(e)=>setSelectedendDate(e.target.value)}
-     className='input_field_validation'
+     className='input_field_startdate_mainowner'
      required
      />
       </div>
 </div> 
 </div>
-    <div className='searchbtn'>
-<button type="submit" onClick={handleDate}>upload</button>
+    <div className='searchbtnowner'>
+<button type="submit" onClick={handleDate} className="searchtextowner">Upload</button>
      {/* <Link to="/FormSection1" className='searchtext'>Upload</Link> */}
     </div>
  </div>
