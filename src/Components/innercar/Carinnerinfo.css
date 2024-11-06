@@ -11,12 +11,15 @@
 .innerimg{
     margin-left: 300px;
     margin-top: 20px;
+    max-width: 500px;
+    max-height:500px;
 
 }
 .innercarname{
     margin-left: 380px;
     font-size: xx-large;
     padding-top: 20px;
+    
     
 }
 .container_exterior{
@@ -37,6 +40,8 @@
 .eximg{
     margin-left: 90px;
     margin-right: -60px;
+    max-width: 400px;
+    max-height:400px;
     
 }
 .segment_car{

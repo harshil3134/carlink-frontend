@@ -45,7 +45,7 @@ const navigate=useNavigate();
   };
 
   if(isAuthorized){
-    navigate(`/mainowner`);
+  
     if(role==="OWNER")
     {
       setTimeout(() => {
