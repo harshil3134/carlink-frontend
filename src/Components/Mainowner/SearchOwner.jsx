@@ -13,17 +13,19 @@ function SearchOwner() {
     const [selectedstartDate, setSelectedstartDate] = useState(new Date());
     const [selectedendDate, setSelectedendDate] = useState(new Date());
     const [carName,setCarName]=useState("");
+    const [plateNo,setPlateNo]=useState("");
     const [carList,setCarList]=useState([]);
+    const [platenoList,setPlatenoList]=useState([]);
     
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
   const handleDate = async (e) => {
     e.preventDefault();
     try {
-      console.log("cc",carName)
+      console.log("cc",carName,"pn",plateNo)
       const { data } = await axios.post(
         "http://localhost:8000/api/v1/owner_reg/owner_home",
-        {carname:carName,startdate:selectedstartDate,enddate:selectedendDate},
+        {carname:carName,plateno:plateNo,startdate:selectedstartDate,enddate:selectedendDate},
         {
           headers: {
             "Content-Type": "application/json",
@@ -56,8 +58,9 @@ const fetchcars = async (e) => {
       console.log("dataa",data);
   
       console.log("hey",data.carlist);
+      console.log("hey2",data.platenolist);
       setCarList(data.carlist);
-
+      setPlatenoList(data.platenolist);
 
     }   
     
@@ -87,8 +90,11 @@ fetchcars();
       display:"flex",
     }
 
-    const testarr=['AA','BB','CC'];
-
+    const handleChange = (event) => {
+      const [value1, value2] = event.target.value.split('(');
+      setCarName(value1);
+      setPlateNo(value2);
+    };
 
 
   return (
@@ -107,12 +113,13 @@ fetchcars();
     <div className="selectcar">
       <p>Select an Option:</p>
       {/* Render dropdown list */}
-      <select onChange={(e)=>setCarName(e.target.value)} required>
+      <select onChange={(e)=>handleChange(e) }required>
         {/* Map over the options array to render options */}
         <option>Select Car</option>
-        {carList.map(option => (
-          <option key={option} value={option}>
-            {option}
+        {carList.map((option,index) => (
+          
+          <option key={option} value={`${option}(${platenoList[index]}`}>
+            {`${option} (${platenoList[index]})`}
           </option>
         ))}
       </select>
