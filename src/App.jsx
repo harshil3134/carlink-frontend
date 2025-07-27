@@ -1,92 +1,306 @@
-import {Routes,Route, BrowserRouter } from "react-router-dom";
-import { Context } from "./main.jsx";
-import React, { useContext, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Toaster, toast } from 'react-hot-toast';
+import './App.css';
 
-import axios from "axios";
-import {Toaster} from "react-hot-toast";
-import Home from "./home/Home"
-import About from "./Components/aboutus/About";
-import Mainrenter from "./Components/Main_Renter/Mainrenter";
-import Popup from "./Components/Main_Renter/Popup";
-import Car_choose from "./Components/Selectcar/Car_choose";
-import Maincar from "./Components/innercar/Maincar";
-import MainOwner from "./Components/Mainowner/MainOwner";
-import UpdateProfile from "./Components/Updateprofile/UpdateProfile";
-import Login from "./Components/Login/Login";
-import Forgotpass from "./Components/Login/Forgotpass";
-import Signup from "./Components/Signup/Signup"
-import Owner_reg from "./Components/Registration/Owner_reg";
-import Renter_reg from "./Components/Registration/Renter_reg";
-import Vehicle_reg from "./Components/Registration/Vehicle_reg";
-import Heading_reg from "./Components/Heading_reg";
-import Uploadcar from "./Components/Mainowner/Uploadcar";
-import Role from "./Components/Signup/Role";
-import Notfound from "./Components/Notfound/Notfound";
-import FormSection1 from "./Components/Mainowner/FormSection1.jsx";
-import FormSection2 from "./Components/Mainowner/FormSection2.jsx";
+const API_BASE_URL = 'http://localhost:8000';
 
-let App = () =>{
+function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [credentials, setCredentials] = useState(null);
+  const [folders, setFolders] = useState([]);
+  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [folderStats, setFolderStats] = useState(null);
+  const [testImage, setTestImage] = useState(null);
+  const [matches, setMatches] = useState([]);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [isMatching, setIsMatching] = useState(false);
+  const [downloadUrl, setDownloadUrl] = useState(null);
 
-   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
-   useEffect(() => {
-     const fetchUser = async () => {
-       try {
-         const response = await axios.get(
-            "http://localhost:8000/api/v1/user/getuser",
-           {
-             withCredentials: true,
-           }
-         );
-         setUser(response.data.user);
-         setIsAuthorized(true);
-       } catch (error) {
-         setIsAuthorized(false);
-       }
-     };
-     fetchUser();
-   }, [isAuthorized]);
+  // Initialize API client
+  const api = axios.create({
+    baseURL: API_BASE_URL,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
+  // Google Drive Authentication
+  const handleGoogleAuth = async () => {
+    try {
+      const response = await api.get('/auth/url');
+      window.location.href = response.data.auth_url;
+    } catch (error) {
+      toast.error('Failed to initiate Google authentication');
+      console.error('Auth error:', error);
+    }
+  };
 
+  // Fetch folders from Google Drive
+  const fetchFolders = async () => {
+    try {
+      const response = await api.get('/folders');
+      setFolders(response.data);
+    } catch (error) {
+      toast.error('Failed to fetch folders');
+      console.error('Folder fetch error:', error);
+    }
+  };
 
-   return(
-      <div>
-     
-      {/* <Router>
-      <Heading/> */}
-      <BrowserRouter>
-   
-      <Routes>
-      <Route exact path="/" element={<Home/>}/>
-      <Route  path="/about" element={<About/>}/>
-      <Route path="/Mainrenter" element={<Mainrenter/>}></Route>
-      <Route path="/Car_choose" element={<Car_choose/>}></Route>
-      <Route path="/Maincar" element={<Maincar/>}></Route>
-      <Route path="/MainOwner" element={<MainOwner/>}></Route>
-      <Route path="/Popup" element={<Popup/>}></Route>
-      <Route path="/UpdateProfile" element={<UpdateProfile/>}></Route>
-      <Route path="/Login" element={<Login/>}></Route>
-      <Route path="/Forgotpass" element={<Forgotpass/>}></Route>
-      <Route path="/Signup" element={<Signup/>}></Route>
-      <Route path="/Owner_reg" element={<Owner_reg/>}></Route>
-      <Route path="/Renter_reg" element={<Renter_reg/>}></Route>
-      <Route path="/Vehicle_reg" element={<Vehicle_reg/>}></Route>
-      <Route path="/Heading_reg" element={<Heading_reg/>}></Route>
-      <Route path="/Uploadcar" element={<Uploadcar/>}></Route>
-      <Route path="/Role" element={<Role/>}></Route>
-      <Route path="/FormSection1" element={<FormSection1/>}></Route>
-      <Route path="/FormSection2/:id" element={<FormSection2/>}></Route>
-      {/* <Route path="*" element={<Notfound/>}/> */}
+  // Process folder to create embeddings
+  const processFolder = async (folderId, folderName) => {
+    try {
+      setIsProcessing(true);
+      toast.loading('Processing photos in folder...');
       
-      </Routes>
-      </BrowserRouter>
+      const response = await api.post(`/process-folder/${folderId}?folder_name=${encodeURIComponent(folderName)}`);
       
-      {/* </Router> */}
+      toast.dismiss();
+      toast.success(`Processed ${response.data.processed_photos} out of ${response.data.total_photos} photos`);
       
-      </div>
-  
-  
-   );
-   
+      // Fetch updated stats
+      fetchFolderStats(folderId);
+    } catch (error) {
+      toast.dismiss();
+      toast.error('Failed to process folder');
+      console.error('Process folder error:', error);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  // Fetch folder processing stats
+  const fetchFolderStats = async (folderId) => {
+    try {
+      const response = await api.get(`/folder-stats/${folderId}`);
+      setFolderStats(response.data);
+    } catch (error) {
+      console.error('Stats fetch error:', error);
+    }
+  };
+
+  // Handle test image upload
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setTestImage(file);
+      setMatches([]);
+      setDownloadUrl(null);
+    }
+  };
+
+  // Match photo with processed photos
+  const matchPhoto = async () => {
+    if (!testImage || !selectedFolder) {
+      toast.error('Please select a folder and upload a test image');
+      return;
+    }
+
+    try {
+      setIsMatching(true);
+      const formData = new FormData();
+      formData.append('file', testImage);
+
+      const response = await api.post(`/match-photo/${selectedFolder.id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      setMatches(response.data.matches);
+      setDownloadUrl(response.data.download_url);
+      
+      if (response.data.matches.length > 0) {
+        toast.success(`Found ${response.data.total_matches} matches!`);
+      } else {
+        toast.info('No matches found');
+      }
+    } catch (error) {
+      toast.error('Failed to match photo');
+      console.error('Match photo error:', error);
+    } finally {
+      setIsMatching(false);
+    }
+  };
+
+  // Download matched photos
+  const downloadMatches = () => {
+    if (downloadUrl) {
+      window.open(`${API_BASE_URL}${downloadUrl}`, '_blank');
+    }
+  };
+
+  // Check for stored credentials on app load
+  useEffect(() => {
+    const storedCredentials = localStorage.getItem('google_credentials');
+    if (storedCredentials) {
+      try {
+        const creds = JSON.parse(storedCredentials);
+        setCredentials(creds);
+        setIsAuthenticated(true);
+        api.post('/auth/credentials', creds).then(() => {
+          fetchFolders();
+        });
+      } catch (error) {
+        localStorage.removeItem('google_credentials');
+      }
+    }
+  }, []);
+
+  // Update folder stats when folder is selected
+  useEffect(() => {
+    if (selectedFolder) {
+      fetchFolderStats(selectedFolder.id);
+    }
+  }, [selectedFolder]);
+
+  return (
+    <div className="App">
+      <Toaster position="top-right" />
+      
+      <header className="app-header">
+        <h1>📸 Photo Matcher</h1>
+        <p>Find matching faces in your Google Drive photos</p>
+      </header>
+
+      <main className="app-main">
+        {!isAuthenticated ? (
+          <div className="auth-section">
+            <div className="auth-card">
+              <h2>Connect to Google Drive</h2>
+              <p>Authorize access to your Google Drive to get started</p>
+              <button onClick={handleGoogleAuth} className="auth-button">
+                🔐 Authorize Google Drive
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="main-content">
+            {/* Folder Selection */}
+            <section className="folder-section">
+              <h2>📁 Select a Folder</h2>
+              <div className="folder-grid">
+                {folders.map((folder) => (
+                  <div
+                    key={folder.id}
+                    className={`folder-card ${selectedFolder?.id === folder.id ? 'selected' : ''}`}
+                    onClick={() => setSelectedFolder(folder)}
+                  >
+                    <div className="folder-icon">📁</div>
+                    <div className="folder-name">{folder.name}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {selectedFolder && (
+              <>
+                {/* Folder Processing */}
+                <section className="processing-section">
+                  <h3>📊 Folder: {selectedFolder.name}</h3>
+                  {folderStats ? (
+                    <div className="stats-card">
+                      <div className="stat">
+                        <span>Total Photos:</span>
+                        <span>{folderStats.total_photos}</span>
+                      </div>
+                      <div className="stat">
+                        <span>Processed:</span>
+                        <span>{folderStats.processed_photos}</span>
+                      </div>
+                      <div className="stat">
+                        <span>Status:</span>
+                        <span className={folderStats.processing_complete ? 'complete' : 'incomplete'}>
+                          {folderStats.processing_complete ? '✅ Complete' : '⏳ Incomplete'}
+                        </span>
+                      </div>
+                      {!folderStats.processing_complete && (
+                        <button
+                          onClick={() => processFolder(selectedFolder.id, selectedFolder.name)}
+                          disabled={isProcessing}
+                          className="process-button"
+                        >
+                          {isProcessing ? '⏳ Processing...' : '🔄 Process Folder'}
+                        </button>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="no-stats">
+                      <p>This folder hasn't been processed yet.</p>
+                      <button
+                        onClick={() => processFolder(selectedFolder.id, selectedFolder.name)}
+                        disabled={isProcessing}
+                        className="process-button"
+                      >
+                        {isProcessing ? '⏳ Processing...' : '🚀 Start Processing'}
+                      </button>
+                    </div>
+                  )}
+                </section>
+
+                {/* Photo Matching */}
+                {folderStats?.processing_complete && (
+                  <section className="matching-section">
+                    <h3>🔍 Find Matches</h3>
+                    <div className="upload-area">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        id="image-upload"
+                        style={{ display: 'none' }}
+                      />
+                      <label htmlFor="image-upload" className="upload-button">
+                        📷 Upload Test Photo
+                      </label>
+                      {testImage && (
+                        <div className="test-image-info">
+                          <span>✅ {testImage.name}</span>
+                          <button
+                            onClick={matchPhoto}
+                            disabled={isMatching}
+                            className="match-button"
+                          >
+                            {isMatching ? '🔍 Matching...' : '🎯 Find Matches'}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </section>
+                )}
+
+                {/* Results */}
+                {matches.length > 0 && (
+                  <section className="results-section">
+                    <div className="results-header">
+                      <h3>🎉 Found {matches.length} Matches!</h3>
+                      {downloadUrl && (
+                        <button onClick={downloadMatches} className="download-button">
+                          📥 Download All Matches
+                        </button>
+                      )}
+                    </div>
+                    <div className="matches-grid">
+                      {matches.map((match, index) => (
+                        <div key={index} className="match-card">
+                          <div className="match-info">
+                            <div className="match-name">{match.file_name}</div>
+                            <div className="match-confidence">
+                              Confidence: {(match.confidence * 100).toFixed(1)}%
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
+              </>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
+  );
 }
 
 export default App;

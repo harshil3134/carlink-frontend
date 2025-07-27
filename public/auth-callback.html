@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Success</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+        }
+        .success {
+            color: #28a745;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        .close-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        .close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success">✅</div>
+        <h1>Authentication Successful!</h1>
+        <p>You have been successfully authenticated with Google Drive. You can now close this window and return to the application.</p>
+        <button class="close-btn" onclick="window.close()">Close Window</button>
+    </div>
+
+    <script>
+        // Extract code from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const error = urlParams.get('error');
+
+        if (error) {
+            document.querySelector('.success').textContent = '❌';
+            document.querySelector('h1').textContent = 'Authentication Failed';
+            document.querySelector('p').textContent = 'There was an error during authentication: ' + error;
+        } else if (code) {
+            // Exchange code for token
+            fetch('http://localhost:8000/auth/callback?code=' + encodeURIComponent(code))
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.credentials) {
+                        // Store credentials in localStorage
+                        localStorage.setItem('google_credentials', JSON.stringify(data.credentials));
+                        
+                        // Show success message
+                        document.querySelector('.success').textContent = '✅';
+                        document.querySelector('h1').textContent = 'Authentication Successful!';
+                        document.querySelector('p').textContent = 'You have been successfully authenticated with Google Drive. You can now close this window and return to the application.';
+                        
+                        // Auto-close after 3 seconds
+                        setTimeout(() => {
+                            window.close();
+                        }, 3000);
+                    } else {
+                        throw new Error('Authentication failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.querySelector('.success').textContent = '❌';
+                    document.querySelector('h1').textContent = 'Authentication Failed';
+                    document.querySelector('p').textContent = 'There was an error during authentication. Please try again.';
+                });
+        } else {
+            document.querySelector('.success').textContent = '❌';
+            document.querySelector('h1').textContent = 'Invalid Request';
+            document.querySelector('p').textContent = 'No authentication code received.';
+        }
+    </script>
+</body>
+</html>
